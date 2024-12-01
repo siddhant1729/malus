@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>  // For cosine and trigonometric functions
+
+// Function to calculate the intensity using Malus' Law
+double calculateIntensity(double I0, double angle) {
+    // Convert angle from degrees to radians
+    double angle_rad = angle * (M_PI / 180.0);
+
+    // Apply Malus' Law: I = I0 * cos^2(angle)
+    double intensity = I0 * cos(angle_rad) * cos(angle_rad);
+    return intensity;
+}
+
+int main() {
+    // Declare variables for initial intensity and angle
+    double I0, angle, finalIntensity;
+
+    // Input: Initial intensity and angle
+    printf("Enter the initial intensity (I0) in W/m^2: ");
+    scanf("%lf", &I0);
+
+    printf("Enter the angle (theta) between the light's polarization and the polarizer axis in degrees: ");
+    scanf("%lf", &angle);
+
+    // Calculate the final intensity using Malus' Law
+    finalIntensity = calculateIntensity(I0, angle);
+
+    // Output the result
+    printf("The intensity of light after passing through the polarizer is: %.2f W/m^2\n", finalIntensity);
+
+    return 0;
+}
